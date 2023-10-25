@@ -1,0 +1,19 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "mongodb"
+  url      = env("DATABASE_URL")
+}
+
+model Article {
+  id String @id @default(auto()) @map("_id") @db.ObjectId
+  title      String @unique
+  image      String    // L'URL de l'image, vous pouvez également stocker la base64 de l'image si nécessaire
+  description String?
+  created    DateTime  @default(now())
+}
