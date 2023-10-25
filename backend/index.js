@@ -56,7 +56,7 @@ app.get('/scrape', async (req, res) => {
       });
       
     } catch (error) {
-      console.error('Error:', error);
+      console.error('Error', error);
       res.status(500).send('An error occurred.');
     }
   });
